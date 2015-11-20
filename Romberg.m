@@ -19,7 +19,7 @@ function [R] = Romberg(f, m, a, b)
 	end
 	
 	for j = 1:m
-		R(j,1) = CompTrapizoidal(f,(2^(j-1)), a , b);
+		R(j,1) = CompTrapezoidal(f,(2^(j-1)), a , b);
 	end
 
 	if m == 1

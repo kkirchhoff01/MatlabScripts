@@ -11,7 +11,8 @@ function [y,e] = RungaKutta(h, y0, t0, f, Y, B, Order)
 %        B - value of beta (method of integration)
 %        Order - order of RK method (2nd or 4th)
 %
-% Output: R - The computed integral
+% Output: y - The computed integral
+%         e - error
 
 if isa(f, 'function_handle') ~= 1
 	error('f needs to be a function');

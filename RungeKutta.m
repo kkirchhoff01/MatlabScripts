@@ -1,4 +1,4 @@
-function [y,e] = RungaKutta(h, y0, t0, f, Y, B, Order)
+function [y,e] = RungeKutta(h, y0, t0, f, Y, B, Order)
 % This uses the Runge-Kutta method of numerical integration
 % with 2nd order or 4th order, given an IVP and it's actual
 % solution.
@@ -18,6 +18,8 @@ if isa(f, 'function_handle') ~= 1
 	error('f needs to be a function');
 elseif isa(Y, 'function_handle') ~= 1
 	error('Y needs to be a function');
+elseif h <= 0 || h > 1
+	error('Must have 0 < h < 1');
 end
 
 if Order == 2

@@ -40,22 +40,22 @@ if Order == 2
 			e(j) = abs(Y(t(j)) - y(j));
 		end
 	end
+%Something is wrong with 4th order RK
 elseif Order == 4
 	k1 = f(t0,y0);
 	k2 = f(t0 + (h/2), y0 + (h/2)*k1);
 	k3 = f(t0 + (h/2), y0 + (h/2)*k2);
-	k4 = f(t0, y0 + h*k3);
+	k4 = f(t0 + h, y0 + h*k3);
 	y(1) = y0 + (h/6)*(k1 + 2*k2 + 2*k3 + k4);
 
 	t(1) = h;
 	e(1) = Y(t(1)) - y(1);
 	for j = 1:(1/h)
-		t(j) = t0 + j*h;
-		t(j+1) = t0 + (j+1)*h;
+		t(j+1) = t(j) + h;
 		k1 = f(t(j),y(j));
 		k2 = f(t(j) + (h/2), y(j) + (h/2)*k1);
 		k3 = f(t(j) + (h/2), y(j) + (h/2)*k2);
-		k4 = f(t0+(j+1)*h, y(j) + h*k3);
+		k4 = f(t(j)+ h, y(j) + h*k3);
 		y(j+1) = y(j) + (h/6)*(k1 + 2*k2 + 2*k3 + k4);
 		e(j) = abs(Y(t(j)) - y(j));
 	end

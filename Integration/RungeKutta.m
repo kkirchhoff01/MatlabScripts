@@ -40,7 +40,7 @@ if Order == 2
 			e(j) = abs(Y(t(j)) - y(j));
 		end
 	end
-%Something is wrong with 4th order RK
+
 elseif Order == 4
 	k1 = f(t0,y0);
 	k2 = f(t0 + (h/2), y0 + (h/2)*k1);

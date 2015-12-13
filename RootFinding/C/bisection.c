@@ -2,12 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[]){
+/*******************************
+*                              *
+* Bisection method to find the *
+* root of the given function   *
+*                              *
+* This was written on my phone,*
+* so it's not the greatest     *
+* implementation.              *
+*                              *
+*******************************/
+
+int main(){
   float a = -1.2;
   float b = 0.8;
-  static float TOL = pow(10,(-3));
+  float TOL = pow(10,(-3));
   printf("TOL: %f\n", TOL);
-  int n = 0;
+  int n = 1;
 
   float p = (a+b)/2.0;
   float f[] = {pow(a,5.0) + 2.0*a +3.0, pow(b,5.0) + 2.0*b +3.0, pow(p,5) + 2.0*p +3.0};
@@ -24,11 +35,11 @@ int main(int argc, char *argv[]){
     if((b-a)/2 <= TOL)
       break;
     if((sa*f[2]) > 0){
-      a = p;//f[0] = f[2];
+      a = p;
       f[0] = pow(a,5) + 2.0*a +3.0;
     }
     if((sa*f[2]) < 0){
-      b = p;//f[1] = f[2];
+      b = p;
       f[1] = pow(b,5) + 2.0*b +3.0;
     }
     p = (a+b)/2.0;

@@ -1,1 +1,1 @@
-A collection of MATLAB scripts that I have written and used for various classes and projects.
+A collection of scripts that I have written and used for various classes and projects. The majority of the scripts are written in MATLAB, but I have also implemented a few in C and Python (not all of them are included in this repo). They consist mostly of algorithms and examples for numerical analysis.
